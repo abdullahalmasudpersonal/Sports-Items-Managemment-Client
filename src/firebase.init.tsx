@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAH7ruYXKFz0xSzgdjvaSXWY9V-C_q8xgc",
-  authDomain: "sports-items-management.firebaseapp.com",
-  projectId: "sports-items-management",
-  storageBucket: "sports-items-management.appspot.com",
-  messagingSenderId: "605044293831",
-  appId: "1:605044293831:web:20232a12786c24d190fee2",
+  apiKey: "AIzaSyDUvUkUvU0c8rV1sCm8HTx09VxzrBNTjWI",
+  authDomain: "sports-items-management-2.firebaseapp.com",
+  projectId: "sports-items-management-2",
+  storageBucket: "sports-items-management-2.appspot.com",
+  messagingSenderId: "1082567391217",
+  appId: "1:1082567391217:web:5b3fba8758d19994b33650",
 };
 
 // Initialize Firebase
