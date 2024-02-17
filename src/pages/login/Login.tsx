@@ -39,7 +39,7 @@ const Login = () => {
           <Form
             name="normal_login"
             className="login-form"
-            initialValues={{ username: "abdullah", password: "abdullah" }}
+            initialValues={{ username: "abdullah", password: "admin12345" }}
             onFinish={onFinish}
           >
             <Form.Item

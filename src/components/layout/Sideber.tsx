@@ -3,19 +3,30 @@ import Sider from "antd/es/layout/Sider";
 import { sideberItemsGenerator } from "../../utils/sideberItemsGenerators";
 import { adminPaths } from "../../routers/admin.routes";
 import { Badge } from "antd";
+import { superAdminPaths } from "../../routers/superAdmin.routes";
+import { useAppSelector } from "../../redux/hooks";
+import { selectCurrentUser } from "../../redux/features/auth/authSlice";
 
 const userRole = {
+  SUPERADMIN: "superAdmin",
   ADMIN: "admin",
   FACULTY: "faculty",
   STUDENT: "student",
 };
 
 const Sideber = () => {
-  const role = "admin";
+  const role = userRole.SUPERADMIN;
+  const user = useAppSelector(selectCurrentUser);
 
   let sideberItems;
 
-  switch (role) {
+  switch (user!.role) {
+    case userRole.SUPERADMIN:
+      sideberItems = sideberItemsGenerator(
+        superAdminPaths,
+        userRole.SUPERADMIN
+      );
+      break;
     case userRole.ADMIN:
       sideberItems = sideberItemsGenerator(adminPaths, userRole.ADMIN);
       break;

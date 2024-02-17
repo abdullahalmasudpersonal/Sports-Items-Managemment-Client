@@ -109,7 +109,7 @@ const Register = () => {
               rules={[
                 {
                   type: "string",
-                  message: "The input is not valid Username!",
+                  message: "This is not valid Username!",
                 },
                 {
                   required: true,
