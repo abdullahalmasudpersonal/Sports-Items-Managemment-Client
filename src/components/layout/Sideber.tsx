@@ -6,16 +6,17 @@ import { Badge } from "antd";
 import { superAdminPaths } from "../../routers/superAdmin.routes";
 import { useAppSelector } from "../../redux/hooks";
 import { selectCurrentUser } from "../../redux/features/auth/authSlice";
+import { branchManagerPaths } from "../../routers/branchManager.routes";
 
 const userRole = {
   SUPERADMIN: "superAdmin",
+  BRANCHMANAGER:'branchManager',
   ADMIN: "admin",
   FACULTY: "faculty",
   STUDENT: "student",
 };
 
 const Sideber = () => {
-  const role = userRole.SUPERADMIN;
   const user = useAppSelector(selectCurrentUser);
 
   let sideberItems;
@@ -27,6 +28,14 @@ const Sideber = () => {
         userRole.SUPERADMIN
       );
       break;
+
+    case userRole.BRANCHMANAGER:
+      sideberItems = sideberItemsGenerator(
+        branchManagerPaths,
+        userRole.BRANCHMANAGER
+      );
+      break;
+
     case userRole.ADMIN:
       sideberItems = sideberItemsGenerator(adminPaths, userRole.ADMIN);
       break;
@@ -46,7 +55,7 @@ const Sideber = () => {
           alignItems: "center",
         }}
       >
-        <Badge count={role}>
+        <Badge count={user!.role}>
           <h1
             style={{
               color: "white",
