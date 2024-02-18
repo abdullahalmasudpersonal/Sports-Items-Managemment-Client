@@ -1,5 +1,6 @@
 import SuperAdminDashboard from "../pages/superAdmin/superAdminDashboard";
 import CreateBranchManager from "../pages/superAdmin/userManagement/CreateBranchManager";
+import CreateSeller from "../pages/superAdmin/userManagement/CreateSeller";
 
 export const superAdminPaths = [
   {
@@ -12,8 +13,13 @@ export const superAdminPaths = [
     children: [
       {
         name: "Create Branch Manager",
-        path: "create-branch-manager",
+        path: "users-management/create-branch-manager",
         element: <CreateBranchManager />,
+      },
+      {
+        name: "Create Seller ",
+        path: "users-management/create-seller",
+        element: <CreateSeller />,
       },
     ],
   },

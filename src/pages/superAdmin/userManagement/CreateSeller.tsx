@@ -1,10 +1,9 @@
 import { Button, Form, Input, Select } from "antd";
 import TextArea from "antd/es/input/TextArea";
-import { FieldValues } from "react-hook-form";
-import "./UserCss.css";
-import { useCreateBranchManagerMutation } from "../../../redux/features/superAdmin/userManagement/branchManagerApi";
-import { toast } from "sonner";
 import { useState } from "react";
+import { FieldValues } from "react-hook-form";
+import { toast } from "sonner";
+import { useCreateSellerMutation } from "../../../redux/features/superAdmin/userManagement/sellerApi";
 
 const { Option } = Select;
 
@@ -19,8 +18,8 @@ const formItemLayout = {
   },
 };
 
-const CreateBranchManager = () => {
-  const [branchManager] = useCreateBranchManagerMutation();
+const CreateSeller = () => {
+  const [seller] = useCreateSellerMutation();
   const [error, setError] = useState("");
   const [form] = Form.useForm();
 
@@ -28,9 +27,9 @@ const CreateBranchManager = () => {
     console.log("received values of form", data);
 
     try {
-      const branchManagerData = {
+      const sellerData = {
         password: data.password,
-        branchManager: {
+        seller: {
           username: data.username,
           name: {
             firstName: data.firstName,
@@ -46,10 +45,10 @@ const CreateBranchManager = () => {
           profileImg: data.profileImg,
         },
       };
-      console.log(branchManagerData);
-      const result = await branchManager(branchManagerData).unwrap();
+      console.log(sellerData);
+      const result = await seller(sellerData).unwrap();
       if (result.success) {
-        toast.success("Create new branch manager!!!", { duration: 2000 });
+        toast.success("Create new seller!!!", { duration: 2000 });
         form.resetFields();
         setError("");
       }
@@ -59,12 +58,13 @@ const CreateBranchManager = () => {
       setError(error.data.message);
     }
   };
+
   return (
     <div className="createBranchManager">
       <div className="createBranchManager-dev">
         <div>
           <h1 style={{ textAlign: "center", marginBottom: "30px" }}>
-            Create Branch Manager
+            Create Seller
           </h1>
           <Form
             {...formItemLayout}
@@ -302,4 +302,4 @@ const CreateBranchManager = () => {
   );
 };
 
-export default CreateBranchManager;
+export default CreateSeller;
