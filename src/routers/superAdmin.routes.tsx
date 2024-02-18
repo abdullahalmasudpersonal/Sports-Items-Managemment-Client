@@ -1,3 +1,5 @@
+import GetAllSales from "../pages/superAdmin/salesManagement/GetAllSales";
+import SalesManagement from "../pages/superAdmin/salesManagement/SalesManagement";
 import CreateProduct from "../pages/superAdmin/sportsItemsManagements/CreateProduct";
 import DeleteProduct from "../pages/superAdmin/sportsItemsManagements/DeleteProduct";
 import GetAllProducts from "../pages/superAdmin/sportsItemsManagements/GetAllProducts";
@@ -28,6 +30,21 @@ export const superAdminPaths = [
         name: "Delete Products",
         path: "sports-items-management/delete-product",
         element: <DeleteProduct />,
+      },
+    ],
+  },
+  {
+    name: "Salse Management",
+    children: [
+      {
+        name: "Salse Product",
+        path: "sales-product",
+        element: <SalesManagement />,
+      },
+      {
+        name: "All Seals",
+        path: "sales",
+        element: <GetAllSales />,
       },
     ],
   },
