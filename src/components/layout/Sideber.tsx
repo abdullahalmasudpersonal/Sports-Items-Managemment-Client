@@ -7,13 +7,13 @@ import { superAdminPaths } from "../../routers/superAdmin.routes";
 import { useAppSelector } from "../../redux/hooks";
 import { selectCurrentUser } from "../../redux/features/auth/authSlice";
 import { branchManagerPaths } from "../../routers/branchManager.routes";
+import { sellerPaths } from "../../routers/seller.routes";
 
 const userRole = {
   SUPERADMIN: "superAdmin",
   BRANCHMANAGER:'branchManager',
+  SELLER:'seller',
   ADMIN: "admin",
-  FACULTY: "faculty",
-  STUDENT: "student",
 };
 
 const Sideber = () => {
@@ -33,6 +33,13 @@ const Sideber = () => {
       sideberItems = sideberItemsGenerator(
         branchManagerPaths,
         userRole.BRANCHMANAGER
+      );
+      break;
+
+    case userRole.SELLER:
+      sideberItems = sideberItemsGenerator(
+        sellerPaths,
+        userRole.SELLER
       );
       break;
 

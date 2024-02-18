@@ -6,6 +6,7 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import { superAdminPaths } from "./superAdmin.routes";
 import { branchManagerPaths } from "./branchManager.routes";
+import { sellerPaths } from "./seller.routes";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
     path: "/branchManager",
     element: <App />,
     children: routeGenerator(branchManagerPaths),
+  },
+  {
+    path: "/seller",
+    element: <App />,
+    children: routeGenerator(sellerPaths),
   },
   {
     path: "/admin",
