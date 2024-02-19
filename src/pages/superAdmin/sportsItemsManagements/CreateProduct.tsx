@@ -70,7 +70,7 @@ const CreateProduct = () => {
 
             <Form.Item
               name="category"
-              label="Category"
+              label="Branch"
               rules={[
                 { required: true, message: "Please select description!" },
               ]}
@@ -139,6 +139,23 @@ const CreateProduct = () => {
             </Form.Item>
 
             <Form.Item
+              name="size"
+              label="Size"
+              rules={[
+                {
+                  type: "string",
+                  message: "The input is not valid size!",
+                },
+                {
+                  required: true,
+                  message: "Please input your size!",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Form.Item
               name="brand"
               label="Brand"
               rules={[
@@ -194,7 +211,7 @@ const CreateProduct = () => {
             </Form.Item>
 
             <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
-              Register
+              Create Product
             </Button>
           </Form>
           {error && (
