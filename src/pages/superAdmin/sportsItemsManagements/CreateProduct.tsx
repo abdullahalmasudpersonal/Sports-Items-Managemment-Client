@@ -20,6 +20,7 @@ const CreateProduct = () => {
         code: data.productCode,
         price: data.price,
         quantity: data.quantity,
+        size: data.size,
         brand: data.brand,
         features: data.features,
         description: data.description,

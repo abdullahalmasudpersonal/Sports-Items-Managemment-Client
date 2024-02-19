@@ -1,6 +1,23 @@
+# Sports Items Management Dashboard
+
+## Front-end live link:- https://sports-items-management-2.web.app
+
+## Back-end live link:- https://sports-items-management-server.vercel.app
+
 ## Authentication:
 
-# 1. User Registration and Login:
+### 1. User Registration: Super Admin created only automatically.
+
+### 2. 2 User role 'Branch Manager' & 'Seller' only create by admin.
+
+### 3. After login user will go to his dashboard according to his role.
+
+## Functionality:
+
+### 1. Sports Items Management:
+
+- CRUD Operations:  
+  /
 
 # User Registration only create role admin
 

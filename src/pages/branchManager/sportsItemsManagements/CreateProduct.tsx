@@ -194,7 +194,7 @@ const CreateProduct = () => {
             </Form.Item>
 
             <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
-              Register
+              Create Porduct
             </Button>
           </Form>
           {error && (
