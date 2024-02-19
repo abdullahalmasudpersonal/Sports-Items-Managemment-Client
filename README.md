@@ -4,20 +4,23 @@
 
 ## Back-end live link:- https://sports-items-management-server.vercel.app
 
-## Authentication:
+### Authentication:
 
-### 1. User Registration: Super Admin created only automatically.
+#### 1. User Registration: Super Admin created only automatically.
 
-### 2. 2 User role 'Branch Manager' & 'Seller' only create by admin.
+#### 2. 2 User role 'Branch Manager' & 'Seller' only create by admin.
 
-### 3. After login user will go to his dashboard according to his role.
+#### 3. After login user will go to his dashboard according to his role.
 
-## Functionality:
+### Functionality:
 
-### 1. Sports Items Management:
+#### 1. Sports Items Management:
 
-- CRUD Operations:  
-  /
+- CRUD Operations:
+
+* Add a new sports item to the inventory. (Only SuerAdmin & BranchManager create)
+* Delete existing sports items from the inventory. (Only SuerAdmin & BranchManager create)
+* Update sports item details.
 
 # User Registration only create role admin
 

@@ -39,11 +39,22 @@ const GetAllProducts = () => {
   }, []);
 
   const tableData = productData?.data?.map(
-    ({ _id, name, category, code, price, quantity, brand, productImg }) => ({
+    ({
+      _id,
+      name,
+      category,
+      code,
+      price,
+      quantity,
+      size,
+      brand,
+      productImg,
+    }) => ({
       key: _id,
       name,
       category,
       quantity,
+      size,
       code,
       price,
       brand,
@@ -186,6 +197,11 @@ const GetAllProducts = () => {
       title: "Price",
       dataIndex: `price`,
       key: "price",
+    },
+    {
+      title: "Size",
+      dataIndex: `size`,
+      key: "size",
     },
     {
       title: "Brand",
