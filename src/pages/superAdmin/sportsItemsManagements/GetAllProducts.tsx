@@ -10,6 +10,7 @@ import {
   decrement,
   increment,
 } from "../../../redux/features/counter/counterSlice";
+import { selectCurrentUser } from "../../../redux/features/auth/authSlice";
 
 export type TTProduct = Pick<TProduct, "category" | "code">;
 
@@ -19,9 +20,11 @@ const GetAllProducts = () => {
   const [form] = Form.useForm();
   const [params] = useState<TQueryParam[] | undefined>(undefined);
   const { data: productData } = useGetAllProductQuery(params);
-  // eslint-disable-next-line prefer-const
   let { count } = useAppSelector((state) => state.counter);
-  const [productName, setProductName] = useState("");
+  const [product, setProduct] = useState({});
+  const user = useAppSelector(selectCurrentUser);
+  const { name, size, brand, category, code, price, quantity }: FieldType =
+    product;
 
   /// set current date with time
   const [currentDateTime, setCurrentDateTime] = useState<string>();
@@ -40,11 +43,22 @@ const GetAllProducts = () => {
   }, []);
 
   const tableData = productData?.data?.map(
-    ({ _id, name, category, code, price, quantity, brand, productImg }) => ({
+    ({
+      _id,
+      name,
+      category,
+      code,
+      price,
+      quantity,
+      size,
+      brand,
+      productImg,
+    }) => ({
       key: _id,
       name,
       category,
       quantity,
+      size,
       code,
       price,
       brand,
@@ -189,6 +203,11 @@ const GetAllProducts = () => {
       key: "price",
     },
     {
+      title: "Size",
+      dataIndex: `size`,
+      key: "size",
+    },
+    {
       title: "Brand",
       dataIndex: "brand",
       key: "brand",
@@ -211,7 +230,7 @@ const GetAllProducts = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const showModal = (item: any) => {
-    setProductName(item.name);
+    setProduct(item);
     setIsModalOpen(true);
     // Replace this with the logic to fetch or set your _id
   };
@@ -226,17 +245,24 @@ const GetAllProducts = () => {
   const onFinish = async (data: any) => {
     try {
       const salesProductInfo = {
-        name: productName,
+        seller: user!._id,
+        name: name,
+        branch: category,
+        brand: brand,
+        size: size,
+        price: price,
+        code: code,
         buyer: data.buyer,
         quantity: count,
         date: currentDateTime,
       };
-      console.log(salesProductInfo);
       const res = await salesProduct(salesProductInfo).unwrap();
       form.resetFields();
       handleOk();
       if (res.success) {
-        toast.success("Create new prodcuct!!!", { duration: 1000 });
+        toast.success(`Sales ${name} successfully!!!`, {
+          duration: 2000,
+        });
       }
     } catch (err) {
       console.log(err);
@@ -244,10 +270,19 @@ const GetAllProducts = () => {
   };
 
   type FieldType = {
-    productName?: string;
+    key?: string;
+    name?: string;
+    category?: string;
     buyer?: string;
-    date?: string;
-    quantity?: number;
+    date?: Date;
+    code?: string;
+    price?: string;
+    quantity?: string;
+    size?: string;
+    brand?: string;
+    features?: string;
+    description?: string;
+    productImg?: string;
   };
 
   return (
@@ -268,8 +303,26 @@ const GetAllProducts = () => {
           onFinish={onFinish}
           autoComplete="off"
         >
-          <Form.Item<FieldType> label="Product Name">
-            <h4>{productName}</h4>
+          <Form.Item<FieldType> label="Name">
+            <h4>{name}</h4>
+          </Form.Item>
+          <Form.Item<FieldType> label="Branch">
+            <h4>{category}</h4>
+          </Form.Item>
+          <Form.Item<FieldType> label="Brand">
+            <h4>{brand}</h4>
+          </Form.Item>
+          <Form.Item<FieldType> label="Code">
+            <h4>{code}</h4>
+          </Form.Item>
+          <Form.Item<FieldType> label="Size">
+            <h4>{size}</h4>
+          </Form.Item>
+          <Form.Item<FieldType> label="Price">
+            <h4>{price}</h4>
+          </Form.Item>
+          <Form.Item<FieldType> label="Available Quantity">
+            <h4>{quantity} Pcs</h4>
           </Form.Item>
           <Form.Item<FieldType>
             label="Buyer"

@@ -1,0 +1,14 @@
+.create-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-dev {
+  padding: 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
