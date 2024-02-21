@@ -21,10 +21,10 @@
 
 - CRUD Operations:
 
-- [] Add a new sports item to the inventory. (Only SuerAdmin & BranchManager create)
-- [] Delete existing sports items from the inventory. (Only SuerAdmin & BranchManager delete)
-- [] Update sports item details.(Only SuerAdmin & BranchManager update)
-- [] Read and view the list of sports items in the inventory.( SuerAdmin, BranchManager & seller read)
+- [ ] Add a new sports item to the inventory. (Only SuerAdmin & BranchManager create)
+- [ ] Delete existing sports items from the inventory. (Only SuerAdmin & BranchManager delete)
+- [ ] Update sports item details.(Only SuerAdmin & BranchManager update)
+- [ ] Read and view the list of sports items in the inventory.( SuerAdmin, BranchManager & seller read)
 
 #### 2. Sales Management:
 
@@ -32,5 +32,7 @@
 
 - Used RTK queries for efficient CRUD operations.
 - Implemented Redux for state management.
+- UI updates are nicely ensured in real time.
+- Re-fetching functionality is used for data accuracy. etc.
 
 update comming...

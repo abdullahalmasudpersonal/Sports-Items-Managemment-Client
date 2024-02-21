@@ -9,7 +9,16 @@ const BranchManagerApi = baseApi.injectEndpoints({
         body: branchManagerData,
       }),
     }),
+    getAllBranchManagerIntoDB: builder.query({
+      query: () => ({
+        url: "/branch-manager",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useCreateBranchManagerMutation } = BranchManagerApi;
+export const {
+  useCreateBranchManagerMutation,
+  useGetAllBranchManagerIntoDBQuery,
+} = BranchManagerApi;

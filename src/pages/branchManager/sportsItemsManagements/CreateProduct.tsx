@@ -20,6 +20,7 @@ const CreateProduct = () => {
         code: data.productCode,
         price: data.price,
         quantity: data.quantity,
+        size: data.size,
         brand: data.brand,
         features: data.features,
         description: data.description,
@@ -71,9 +72,11 @@ const CreateProduct = () => {
             <Form.Item
               name="category"
               label="Branch"
-              rules={[{ required: true, message: "Please select branch!" }]}
+              rules={[
+                { required: true, message: "Please select description!" },
+              ]}
             >
-              <Select placeholder="select product branch">
+              <Select placeholder="select your category">
                 <Option value="Laptop">Laptop</Option>
                 <Option value="PC Accessoriesale">PC Accessories</Option>
                 <Option value="Monitor">Monitor</Option>
@@ -137,6 +140,23 @@ const CreateProduct = () => {
             </Form.Item>
 
             <Form.Item
+              name="size"
+              label="Size"
+              rules={[
+                {
+                  type: "string",
+                  message: "The input is not valid size!",
+                },
+                {
+                  required: true,
+                  message: "Please input your size!",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Form.Item
               name="brand"
               label="Brand"
               rules={[
@@ -192,7 +212,7 @@ const CreateProduct = () => {
             </Form.Item>
 
             <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
-              Create Porduct
+              Create Product
             </Button>
           </Form>
           {error && (

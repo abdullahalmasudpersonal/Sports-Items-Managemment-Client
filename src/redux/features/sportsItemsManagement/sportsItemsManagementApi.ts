@@ -9,6 +9,7 @@ const sportsItemsManagementApi = baseApi.injectEndpoints({
         url: "/products",
         method: "GET",
       }),
+      providesTags: ["getProducts"],
       transformResponse: (response: TResponseRedux<TProduct[]>) => {
         return {
           data: response.data,
@@ -22,6 +23,7 @@ const sportsItemsManagementApi = baseApi.injectEndpoints({
         method: "POST",
         body: productInfo,
       }),
+      invalidatesTags: ["getProducts"],
     }),
     updateProductIntoDB: builder.mutation({
       query: (productInfo) => ({
@@ -29,6 +31,7 @@ const sportsItemsManagementApi = baseApi.injectEndpoints({
         method: "PUT",
         body: productInfo,
       }),
+      invalidatesTags: ["getProducts"],
     }),
     deleteProductFormDB: builder.mutation({
       query: (productInfo) => ({
@@ -36,6 +39,7 @@ const sportsItemsManagementApi = baseApi.injectEndpoints({
         method: "PUT",
         body: productInfo,
       }),
+      invalidatesTags: ["getProducts"],
     }),
   }),
 });

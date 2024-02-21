@@ -1,4 +1,5 @@
 import GetAllSales from "../pages/superAdmin/salesManagement/GetAllSales";
+import GetMySales from "../pages/superAdmin/salesManagement/GetMySales";
 import SalesManagement from "../pages/superAdmin/salesManagement/SalesManagement";
 import CreateProduct from "../pages/superAdmin/sportsItemsManagements/CreateProduct";
 import DeleteProduct from "../pages/superAdmin/sportsItemsManagements/DeleteProduct";
@@ -7,6 +8,8 @@ import UpdateProduct from "../pages/superAdmin/sportsItemsManagements/UpdateProd
 import SuperAdminDashboard from "../pages/superAdmin/superAdminDashboard";
 import CreateBranchManager from "../pages/superAdmin/userManagement/CreateBranchManager";
 import CreateSeller from "../pages/superAdmin/userManagement/CreateSeller";
+import GetAllBranchManager from "../pages/superAdmin/userManagement/GetAllBranchManager";
+import GetAllSeller from "../pages/superAdmin/userManagement/GetAllSeller";
 
 export const superAdminPaths = [
   {
@@ -52,6 +55,11 @@ export const superAdminPaths = [
         path: "sales",
         element: <GetAllSales />,
       },
+      {
+        name: "My Seals",
+        path: "my-sales",
+        element: <GetMySales />,
+      },
     ],
   },
   {
@@ -66,6 +74,16 @@ export const superAdminPaths = [
         name: "Create Seller ",
         path: "users-management/create-seller",
         element: <CreateSeller />,
+      },
+      {
+        name: " All Branch Manager ",
+        path: "users-management/all-branch-manager",
+        element: <GetAllBranchManager />,
+      },
+      {
+        name: "All Seller ",
+        path: "users-management/all-seller",
+        element: <GetAllSeller />,
       },
     ],
   },
