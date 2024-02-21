@@ -91,9 +91,7 @@ const DeleteProduct = () => {
         _id: productId,
         isDeleted: true,
       };
-      console.log(salesProductInfo);
       const res = await deleteSingleProduct(salesProductInfo).unwrap();
-      console.log(res);
       if (res.success) {
         toast.success("Delete prodcuct successfully!!!", { duration: 2000 });
       }

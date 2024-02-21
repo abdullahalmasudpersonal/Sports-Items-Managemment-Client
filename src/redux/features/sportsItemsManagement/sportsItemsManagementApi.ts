@@ -23,15 +23,26 @@ const sportsItemsManagementApi = baseApi.injectEndpoints({
         body: productInfo,
       }),
     }),
+    updateProductIntoDB: builder.mutation({
+      query: (productInfo) => ({
+        url: `/products/update/${productInfo._id}`,
+        method: "PUT",
+        body: productInfo,
+      }),
+    }),
     deleteProductFormDB: builder.mutation({
       query: (productInfo) => ({
         url: `/products/delete/${productInfo._id}`,
         method: "PUT",
-        body:productInfo,
+        body: productInfo,
       }),
     }),
   }),
 });
 
-export const { useCreateProductIntoDBMutation, useGetAllProductQuery, useDeleteProductFormDBMutation } =
-  sportsItemsManagementApi;
+export const {
+  useCreateProductIntoDBMutation,
+  useGetAllProductQuery,
+  useUpdateProductIntoDBMutation,
+  useDeleteProductFormDBMutation,
+} = sportsItemsManagementApi;

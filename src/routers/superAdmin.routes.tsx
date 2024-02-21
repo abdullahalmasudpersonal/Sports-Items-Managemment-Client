@@ -3,6 +3,7 @@ import SalesManagement from "../pages/superAdmin/salesManagement/SalesManagement
 import CreateProduct from "../pages/superAdmin/sportsItemsManagements/CreateProduct";
 import DeleteProduct from "../pages/superAdmin/sportsItemsManagements/DeleteProduct";
 import GetAllProducts from "../pages/superAdmin/sportsItemsManagements/GetAllProducts";
+import UpdateProduct from "../pages/superAdmin/sportsItemsManagements/UpdateProduct";
 import SuperAdminDashboard from "../pages/superAdmin/superAdminDashboard";
 import CreateBranchManager from "../pages/superAdmin/userManagement/CreateBranchManager";
 import CreateSeller from "../pages/superAdmin/userManagement/CreateSeller";
@@ -25,6 +26,11 @@ export const superAdminPaths = [
         name: "All Products",
         path: "sports-items-management/products",
         element: <GetAllProducts />,
+      },
+      {
+        name: "Update Products",
+        path: "sports-items-management/update-product",
+        element: <UpdateProduct />,
       },
       {
         name: "Delete Products",

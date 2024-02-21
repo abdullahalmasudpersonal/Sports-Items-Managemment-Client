@@ -1,5 +1,5 @@
 import { Button, Form, Input, Select } from "antd";
-import { Option } from "antd/es/mentions";
+const { Option } = Select;
 import { FieldValues } from "react-hook-form";
 import "./CreatePorduct.css";
 import { useCreateProductIntoDBMutation } from "../../../redux/features/sportsItemsManagement/sportsItemsManagementApi";
@@ -70,12 +70,10 @@ const CreateProduct = () => {
 
             <Form.Item
               name="category"
-              label="Category"
-              rules={[
-                { required: true, message: "Please select description!" },
-              ]}
+              label="Branch"
+              rules={[{ required: true, message: "Please select branch!" }]}
             >
-              <Select placeholder="select your category">
+              <Select placeholder="select product branch">
                 <Option value="Laptop">Laptop</Option>
                 <Option value="PC Accessoriesale">PC Accessories</Option>
                 <Option value="Monitor">Monitor</Option>

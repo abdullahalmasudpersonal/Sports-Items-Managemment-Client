@@ -1,5 +1,5 @@
 import { Button, Form, Input, Select } from "antd";
-import { Option } from "antd/es/mentions";
+const { Option } = Select;
 import { FieldValues } from "react-hook-form";
 import "./CreatePorduct.css";
 import { useCreateProductIntoDBMutation } from "../../../redux/features/sportsItemsManagement/sportsItemsManagementApi";
