@@ -1,3 +1,5 @@
+import { TResponseRedux } from "../../../../types";
+import { TSeller } from "../../../../types/seller";
 import { baseApi } from "../../../api/baseApi";
 
 const SellerApi = baseApi.injectEndpoints({
@@ -9,7 +11,20 @@ const SellerApi = baseApi.injectEndpoints({
         body: sellerData,
       }),
     }),
+    getAllSellerIntoDB: builder.query({
+      query: () => ({
+        url: "/seller",
+        method: "GET",
+      }),
+      transformResponse: (response: TResponseRedux<TSeller[]>) => {
+        return {
+          data: response.data,
+          // meta: response.meta,
+        };
+      },
+    }),
   }),
 });
 
-export const { useCreateSellerMutation } = SellerApi;
+export const { useCreateSellerMutation, useGetAllSellerIntoDBQuery } =
+  SellerApi;

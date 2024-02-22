@@ -1,3 +1,5 @@
+import { TResponseRedux } from "../../../../types";
+import { TBranchManager } from "../../../../types/branchManager";
 import { baseApi } from "../../../api/baseApi";
 
 const BranchManagerApi = baseApi.injectEndpoints({
@@ -14,6 +16,12 @@ const BranchManagerApi = baseApi.injectEndpoints({
         url: "/branch-manager",
         method: "GET",
       }),
+      transformResponse: (response: TResponseRedux<TBranchManager[]>) => {
+        return {
+          data: response.data,
+          // meta: response.meta,
+        };
+      },
     }),
   }),
 });

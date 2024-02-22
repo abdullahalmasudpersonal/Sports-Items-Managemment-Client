@@ -4,10 +4,7 @@ import { TQueryParam } from "../../../types";
 import { useState } from "react";
 import { TBranchManager } from "../../../types/branchManager";
 
-export type TTBranchManager = Pick<
-  TBranchManager,
-  "_id" | "userId" | "username"
->;
+export type TTBranchManager = Pick<TBranchManager, "userId" | "username">;
 
 const GetAllBranchManager = () => {
   const [params] = useState<TQueryParam[] | undefined>(undefined);
