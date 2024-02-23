@@ -20,7 +20,7 @@ const SuperAdminDashboard = () => {
   return (
     <div>
       <GetCurrentTime />
-      <h1>Super Admin Dashbaord</h1>
+      <h1>Supers Admin Dashbaord</h1>
       <p>{currentDateTime}</p>
     </div>
   );

@@ -1,3 +1,4 @@
+import Invoice from "../components/ui/invoice/Invoice";
 import GetAllSales from "../pages/superAdmin/salesManagement/GetAllSales";
 import GetMySales from "../pages/superAdmin/salesManagement/GetMySales";
 import SalesManagement from "../pages/superAdmin/salesManagement/SalesManagement";
@@ -16,6 +17,11 @@ export const superAdminPaths = [
     name: "Dashboard",
     path: "dashboard",
     element: <SuperAdminDashboard />,
+  },
+  {
+    name: "Invoice",
+    path: "invoice",
+    element: <Invoice />,
   },
   {
     name: "Sports Items Management",

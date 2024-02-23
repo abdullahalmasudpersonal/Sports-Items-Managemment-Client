@@ -1,4 +1,4 @@
-import { Table, TableColumnsType } from "antd";
+import { Button, Table, TableColumnsType } from "antd";
 import { useState } from "react";
 import { TQueryParam } from "../../../types";
 import { TSalesProduct } from "../../../types/salesProduct";
@@ -55,6 +55,19 @@ const GetMySales = () => {
       title: "Date",
       dataIndex: "date",
       key: "date",
+    },
+    {
+      title: "Invoice",
+      key: "x",
+      render: (item) => {
+        return (
+          <div>
+            <Button type="primary" /* onClick={() => showModal(item)} */>
+              Download
+            </Button>
+          </div>
+        );
+      },
     },
   ];
 

@@ -1,0 +1,21 @@
+.invoice {
+  width: 900px;
+  height: 1000px;
+  border: 1px solid rgb(0, 81, 255);
+  color: black;
+}
+.invoiceDev {
+  /*  border: 1px solid gray; */
+  margin: 60px;
+  width: 780px;
+  height: 880px;
+}
+.invoiceDev h1 {
+  font-size: 50px;
+}
+
+.billSection {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}

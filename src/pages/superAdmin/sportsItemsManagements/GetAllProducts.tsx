@@ -306,6 +306,7 @@ const GetAllProducts = () => {
           <Form.Item<FieldType> label="Name">
             <h4>{name}</h4>
           </Form.Item>
+
           <Form.Item<FieldType> label="Branch">
             <h4>{category}</h4>
           </Form.Item>
@@ -331,7 +332,6 @@ const GetAllProducts = () => {
           >
             <Input />
           </Form.Item>
-
           <Form.Item<FieldType> label="Quantity" name="quantity">
             <div style={{ display: "flex" }}>
               <Button onClick={() => dispatch(increment())}>Increment</Button>
@@ -339,7 +339,6 @@ const GetAllProducts = () => {
               <Button onClick={() => dispatch(decrement())}>Decrement</Button>
             </div>
           </Form.Item>
-
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit">
               Submit
@@ -347,6 +346,21 @@ const GetAllProducts = () => {
           </Form.Item>
         </Form>
       </Modal>
+
+      <Button type="primary" onClick={showModal}>
+        Open Modal
+      </Button>
+      <Modal
+        title="Basic Modal"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
+
       <Table dataSource={tableData} columns={columns} />
     </>
   );
