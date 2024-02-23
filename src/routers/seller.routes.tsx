@@ -1,5 +1,6 @@
 import SellerDashboard from "../pages/seller/SellerDashboard";
-import GetAllProducts from "../pages/seller/sportsItemsManagements/GetAllProducts";
+import GetMySales from "../pages/superAdmin/salesManagement/GetMySales";
+import GetAllProducts from "../pages/superAdmin/sportsItemsManagements/GetAllProducts";
 
 export const sellerPaths = [
   {
@@ -8,12 +9,22 @@ export const sellerPaths = [
     element: <SellerDashboard />,
   },
   {
-    name: "Sports Items ",
+    name: "Sports Items",
     children: [
       {
         name: "All Products",
         path: "sports-items-management/products",
         element: <GetAllProducts />,
+      },
+    ],
+  },
+  {
+    name: "Sales Management",
+    children: [
+      {
+        name: "My Sales",
+        path: "my-sales",
+        element: <GetMySales />,
       },
     ],
   },

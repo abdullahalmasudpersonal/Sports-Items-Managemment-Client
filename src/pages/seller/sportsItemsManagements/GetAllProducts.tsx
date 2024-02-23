@@ -1,9 +1,12 @@
 import { Button, Form, Input, Modal, Table, TableColumnsType } from "antd";
 import { useEffect, useState } from "react";
-import { useGetAllProductQuery } from "../../../redux/features/sportsItemsManagement/sportsItemsManagementApi";
+import {
+  useCreateProductIntoDBMutation,
+  useGetAllProductQuery,
+} from "../../../redux/features/sportsItemsManagement/sportsItemsManagementApi";
 import { TQueryParam } from "../../../types";
 import { TProduct } from "../../../types/sportsItemsManagement";
-import { useSalesProductInDBMutation } from "../../../redux/features/salesProduct/salesProduct";
+
 import { toast } from "sonner";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import {
@@ -16,7 +19,7 @@ export type TTProduct = Pick<TProduct, "category" | "code">;
 
 const GetAllProducts = () => {
   const dispatch = useAppDispatch();
-  const [salesProduct] = useSalesProductInDBMutation();
+  const [salesProduct] = useCreateProductIntoDBMutation();
   const [form] = Form.useForm();
   const [params] = useState<TQueryParam[] | undefined>(undefined);
   const { data: productData } = useGetAllProductQuery(params);

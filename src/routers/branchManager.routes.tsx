@@ -1,8 +1,9 @@
 import BranchManagerDashboard from "../pages/branchManager/BranchManagerDashboard";
 import CreateProduct from "../pages/branchManager/sportsItemsManagements/CreateProduct";
 import DeleteProduct from "../pages/branchManager/sportsItemsManagements/DeleteProduct";
-import GetAllProducts from "../pages/branchManager/sportsItemsManagements/GetAllProducts";
 import UpdateProduct from "../pages/branchManager/sportsItemsManagements/UpdateProduct";
+import GetMySales from "../pages/superAdmin/salesManagement/GetMySales";
+import GetAllProducts from "../pages/superAdmin/sportsItemsManagements/GetAllProducts";
 
 export const branchManagerPaths = [
   {
@@ -32,6 +33,16 @@ export const branchManagerPaths = [
         name: "Delete Products",
         path: "sports-items-management/delete-product",
         element: <DeleteProduct />,
+      },
+    ],
+  },
+  {
+    name: "Sales Management",
+    children: [
+      {
+        name: "My Sales",
+        path: "my-sales",
+        element: <GetMySales />,
       },
     ],
   },

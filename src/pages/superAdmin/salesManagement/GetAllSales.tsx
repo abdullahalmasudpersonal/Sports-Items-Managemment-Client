@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useGetAllSalesProductQuery } from "../../../redux/features/salesProduct/salesProduct";
+
 import { TQueryParam } from "../../../types";
 import { Table, TableColumnsType } from "antd";
 import { TSalesProduct } from "../../../types/salesProduct";
+import { useGetAllSalesProductQuery } from "../../../redux/features/salesProduct/salesProductApi";
 
 const GetAllSales = () => {
   const [params] = useState<TQueryParam[] | undefined>(undefined);

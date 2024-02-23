@@ -1,31 +1,12 @@
 import { Table, TableColumnsType } from "antd";
 import { useState } from "react";
 import { TQueryParam } from "../../../types";
-import { useGetAllSalesProductQuery } from "../../../redux/features/salesProduct/salesProduct";
 import { TSalesProduct } from "../../../types/salesProduct";
-import { useAppSelector } from "../../../redux/hooks";
-import { selectCurrentUser } from "../../../redux/features/auth/authSlice";
+import { useGetAllMySalesProductQuery } from "../../../redux/features/salesProduct/salesProductApi";
 
 const GetMySales = () => {
   const [params] = useState<TQueryParam[] | undefined>(undefined);
-  const { data: salesData } = useGetAllSalesProductQuery(params);
-  const { data: salesDatas } = useGetAllSalesProductQuery(params);
-  const user = useAppSelector(selectCurrentUser);
-
-  const data = salesDatas?.data?.map((res) => res._id);
-
-  console.log(data);
-
-  const datas = salesDatas?.data;
-  const aa = datas?.map((res) => res.seller);
-  const ress = aa?.map((rs) => rs?._id);
-
-  console.log(ress);
-
-  if (user?._id === ress) {
-    console.log("dd");
-  }
-  console.log(user?._id, ress);
+  const { data: salesData } = useGetAllMySalesProductQuery(params);
 
   const tableData = salesData?.data?.map(
     ({ _id, name, buyer, seller, quantity, price, date }) => ({
