@@ -347,7 +347,7 @@ const GetAllProducts = () => {
         </Form>
       </Modal>
 
-      <Button type="primary" onClick={showModal}>
+      {/*       <Button type="primary" onClick={showModal}>
         Open Modal
       </Button>
       <Modal
@@ -359,7 +359,7 @@ const GetAllProducts = () => {
         <p>Some contents...</p>
         <p>Some contents...</p>
         <p>Some contents...</p>
-      </Modal>
+      </Modal> */}
 
       <Table dataSource={tableData} columns={columns} />
     </>

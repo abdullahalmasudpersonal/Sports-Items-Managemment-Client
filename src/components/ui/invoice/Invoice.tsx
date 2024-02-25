@@ -45,8 +45,8 @@ const Invoice = () => {
   ];
 
   return (
-    <div className="invoice">
-      <div className="invoiceDev" style={{ position: "relative" }}>
+    <div className="invoice ">
+      <div className="invoiceDev " style={{ position: "relative" }}>
         <h1>INVOICE</h1>
 
         <h4 style={{ marginTop: "20px" }}>Abdullah la masud</h4>
