@@ -1,29 +1,23 @@
 import { useState } from "react";
-
 import { TQueryParam } from "../../../types";
 import { Select, Table, TableColumnsType } from "antd";
 import { TSalesProduct } from "../../../types/salesProduct";
 import { useGetAllSalesProductQuery } from "../../../redux/features/salesProduct/salesProductApi";
+import moment from "moment-timezone";
 
 const GetAllSales = () => {
   const [params] = useState<TQueryParam[] | undefined>(undefined);
   const { data: salesData } = useGetAllSalesProductQuery(params);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [role, setRole] = useState("");
   const handleChange = (value: { value: string }) => {
     const as = value.value;
     setRole(as);
   };
-  console.log(role);
 
-  ///.filter((userRole) => userRole.seller === role)
-  if (role) {
-    console.log("role");
-  } else {
-    console.log("roles");
-  }
-  const tableData = salesData?.data
-    ?.filter((userRole) => userRole.sellerRole === role)
-    .map(({ _id, name, buyer, seller, sellerRole, quantity, price, date }) => ({
+  /// .filter((userRole) => userRole.sellerRole === role)
+  const tableData = salesData?.data?.map(
+    ({ _id, name, buyer, seller, sellerRole, quantity, price, createdAt }) => ({
       key: _id,
       name,
       sellerRole,
@@ -31,8 +25,11 @@ const GetAllSales = () => {
       buyer,
       quantity,
       price,
-      date,
-    }));
+      createdAt: moment(createdAt)
+        .tz("Asia/Dhaka")
+        .format("YYYY-MM-DD HH:mm:ss"),
+    })
+  );
 
   type TTSalesProduct = Pick<
     TSalesProduct,
@@ -67,7 +64,7 @@ const GetAllSales = () => {
     },
     {
       title: "Date",
-      dataIndex: "date",
+      dataIndex: "createdAt",
       key: "date",
     },
   ];
@@ -92,6 +89,10 @@ const GetAllSales = () => {
           {
             value: "seller",
             label: "Seller",
+          },
+          {
+            value: "",
+            label: "All",
           },
         ]}
       />

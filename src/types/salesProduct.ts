@@ -18,4 +18,5 @@ export interface TSalesProduct {
   code: string;
   price: number;
   date: string;
+  createdAt: Date;
 }
