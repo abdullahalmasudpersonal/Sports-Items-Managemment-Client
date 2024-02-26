@@ -1,6 +1,7 @@
 export interface TSeller {
   _id?: string;
   userId: string;
+  user: string;
   username: string;
   email: string;
   gender: "male" | "female" | "other";

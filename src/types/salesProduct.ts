@@ -6,10 +6,15 @@ export interface TSeller {
 
 export interface TSalesProduct {
   _id: string;
+  invoice: string;
+  user: string;
   name: string;
   seller: TSeller;
   buyer: string;
   quantity: number;
+  brand: string;
+  size: string;
+  code: string;
   price: number;
   date: string;
 }

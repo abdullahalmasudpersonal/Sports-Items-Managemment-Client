@@ -9,7 +9,6 @@ import {
   decrement,
   increment,
 } from "../../../redux/features/counter/counterSlice";
-import { selectCurrentUser } from "../../../redux/features/auth/authSlice";
 import { useCreateSalesProductMutation } from "../../../redux/features/salesProduct/salesProductApi";
 
 export type TTProduct = Pick<TProduct, "category" | "code">;
@@ -22,7 +21,6 @@ const GetAllProducts = () => {
   const { data: productData } = useGetAllProductQuery(params);
   let { count } = useAppSelector((state) => state.counter);
   const [product, setProduct] = useState({});
-  const user = useAppSelector(selectCurrentUser);
   const { name, size, brand, category, code, price, quantity }: FieldType =
     product;
 
@@ -245,7 +243,6 @@ const GetAllProducts = () => {
   const onFinish = async (data: any) => {
     try {
       const salesProductInfo = {
-        seller: user!._id,
         name: name,
         branch: category,
         brand: brand,

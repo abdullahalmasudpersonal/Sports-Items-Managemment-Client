@@ -17,6 +17,7 @@ const SalesProductApi = baseApi.injectEndpoints({
         url: "/sales",
         method: "GET",
       }),
+
       transformResponse: (response: TResponseRedux<TSalesProduct[]>) => {
         return {
           data: response.data,
