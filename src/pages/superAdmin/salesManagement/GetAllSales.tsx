@@ -1,25 +1,38 @@
 import { useState } from "react";
 
 import { TQueryParam } from "../../../types";
-import { Table, TableColumnsType } from "antd";
+import { Select, Table, TableColumnsType } from "antd";
 import { TSalesProduct } from "../../../types/salesProduct";
 import { useGetAllSalesProductQuery } from "../../../redux/features/salesProduct/salesProductApi";
 
 const GetAllSales = () => {
   const [params] = useState<TQueryParam[] | undefined>(undefined);
   const { data: salesData } = useGetAllSalesProductQuery(params);
+  const [role, setRole] = useState("");
+  const handleChange = (value: { value: string }) => {
+    const as = value.value;
+    setRole(as);
+  };
+  console.log(role);
 
-  const tableData = salesData?.data?.map(
-    ({ _id, name, buyer, seller, quantity, price, date }) => ({
+  ///.filter((userRole) => userRole.seller === role)
+  if (role) {
+    console.log("role");
+  } else {
+    console.log("roles");
+  }
+  const tableData = salesData?.data
+    ?.filter((userRole) => userRole.sellerRole === role)
+    .map(({ _id, name, buyer, seller, sellerRole, quantity, price, date }) => ({
       key: _id,
       name,
+      sellerRole,
       seller,
       buyer,
       quantity,
       price,
       date,
-    })
-  );
+    }));
 
   type TTSalesProduct = Pick<
     TSalesProduct,
@@ -62,6 +75,26 @@ const GetAllSales = () => {
   return (
     <div>
       <h1>Get All Sales</h1>
+      <Select
+        labelInValue
+        defaultValue={{ value: "branchManager", label: "Branch Manager" }}
+        style={{ width: 120 }}
+        onChange={handleChange}
+        options={[
+          {
+            value: "superAdmin",
+            label: "Super Admin",
+          },
+          {
+            value: "branchManager",
+            label: "Branch Manager",
+          },
+          {
+            value: "seller",
+            label: "Seller",
+          },
+        ]}
+      />
       <Table dataSource={tableData} columns={columns} />
     </div>
   );

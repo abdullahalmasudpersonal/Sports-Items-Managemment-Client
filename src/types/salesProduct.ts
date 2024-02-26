@@ -7,6 +7,7 @@ export interface TSeller {
 export interface TSalesProduct {
   _id: string;
   invoice: string;
+  sellerRole: string;
   user: string;
   name: string;
   seller: TSeller;
