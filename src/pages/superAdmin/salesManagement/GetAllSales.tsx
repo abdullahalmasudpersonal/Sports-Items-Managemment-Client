@@ -17,10 +17,11 @@ const GetAllSales = () => {
 
   /// .filter((userRole) => userRole.sellerRole === role)
   const tableData = salesData?.data?.map(
-    ({ _id, name, buyer, seller, sellerRole, quantity, price, createdAt }) => ({
+    ({ _id, name, buyer, seller, sellerRole, quantity, price, createdAt, invoice }) => ({
       key: _id,
       name,
       sellerRole,
+      invoice,
       seller,
       buyer,
       quantity,
@@ -46,6 +47,11 @@ const GetAllSales = () => {
       title: "Seller",
       dataIndex: "seller",
       key: "seller",
+    },
+    {
+      title: "Invoice",
+      dataIndex: "invoice",
+      key: "invoice",
     },
     {
       title: "Buyer",
