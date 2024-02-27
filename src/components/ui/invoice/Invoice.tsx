@@ -87,6 +87,7 @@ const Invoice = ({ product }) => {
             <Text>Hello</Text>
           </View>
           <View style={styles.section}>
+            
             <Text>World</Text>
           </View>
           {/*  <div className="invoice ">
