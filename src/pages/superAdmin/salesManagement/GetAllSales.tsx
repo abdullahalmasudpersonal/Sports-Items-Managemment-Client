@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TQueryParam } from "../../../types";
-import { Select, Table, TableColumnsType } from "antd";
-import { TSalesProduct } from "../../../types/salesProduct";
+import { Select, Table } from "antd";
+//import { TSalesProduct } from "../../../types/salesProduct";
 import { useGetAllSalesProductQuery } from "../../../redux/features/salesProduct/salesProductApi";
 import moment from "moment-timezone";
 
@@ -10,6 +10,7 @@ const GetAllSales = () => {
   const { data: salesData } = useGetAllSalesProductQuery(params);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [role, setRole] = useState("");
+  console.log(role);
   const handleChange = (value: { value: string }) => {
     const as = value.value;
     setRole(as);
@@ -17,7 +18,17 @@ const GetAllSales = () => {
 
   /// .filter((userRole) => userRole.sellerRole === role)
   const tableData = salesData?.data?.map(
-    ({ _id, name, buyer, seller, sellerRole, quantity, price, createdAt, invoice }) => ({
+    ({
+      _id,
+      name,
+      buyer,
+      seller,
+      sellerRole,
+      quantity,
+      price,
+      createdAt,
+      invoice,
+    }) => ({
       key: _id,
       name,
       sellerRole,
@@ -32,12 +43,12 @@ const GetAllSales = () => {
     })
   );
 
-  type TTSalesProduct = Pick<
+  /*   type TTSalesProduct = Pick<
     TSalesProduct,
-    "buyer" | "date" | "name" | "seller" | "quantity" | "price"
-  >;
+    "buyer" | "date" | "name" | "seller" | "quantity" | "price" | "invoice"
+  >; */
 
-  const columns: TableColumnsType<TTSalesProduct> = [
+  /*  const columns: TableColumnsType<TTSalesProduct> = [
     {
       title: "Name",
       dataIndex: "name",
@@ -73,7 +84,7 @@ const GetAllSales = () => {
       dataIndex: "createdAt",
       key: "date",
     },
-  ];
+  ]; */
 
   return (
     <div>
@@ -102,7 +113,7 @@ const GetAllSales = () => {
           },
         ]}
       />
-      <Table dataSource={tableData} columns={columns} />
+      <Table dataSource={tableData} /* columns={columns} */ />
     </div>
   );
 };

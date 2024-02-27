@@ -3,20 +3,32 @@ import { useState } from "react";
 import { TQueryParam } from "../../../types";
 import { TSalesProduct } from "../../../types/salesProduct";
 import { useGetAllMySalesProductQuery } from "../../../redux/features/salesProduct/salesProductApi";
-import Invoice from "../../../components/ui/invoice/Invoice";
 
 const GetMySales = () => {
   const [params] = useState<TQueryParam[] | undefined>(undefined);
   const { data: salesData } = useGetAllMySalesProductQuery(params);
 
   const tableData = salesData?.data?.map(
-    ({ _id, name, buyer, seller, quantity, price,invoice, date, createdAt,size }) => ({
+    ({
+      _id,
+      name,
+      buyer,
+      seller,
+      quantity,
+      price,
+      invoice,
+      date,
+      createdAt,
+      size,
+    }) => ({
       key: _id,
       name,
       seller,
-      buyer,invoice,
+      buyer,
+      invoice,
       quantity,
-      price,size,
+      price,
+      size,
       createdAt,
       date,
     })
@@ -69,7 +81,7 @@ const GetMySales = () => {
       render: (item) => {
         return (
           <div>
-            <Button type="primary" onClick={() => showModal(item)} >
+            <Button type="primary" onClick={() => showModal(item)}>
               Download
             </Button>
           </div>
@@ -79,6 +91,7 @@ const GetMySales = () => {
   ];
 
   const [product, setProduct] = useState({});
+  console.log(product);
   const [isModalOpen, setIsModalOpen] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const showModal = (item: any) => {
@@ -93,7 +106,6 @@ const GetMySales = () => {
     setIsModalOpen(false);
   };
 
-
   return (
     <div>
       <h1>Get My Sales</h1>
@@ -103,11 +115,10 @@ const GetMySales = () => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[]}
-        width='1000px'
-      >
-        
-        <Invoice product={product} />
-      </Modal>
+        width="1000px"
+        style={{ padding: "0" }}
+      ></Modal>
+
       <Table dataSource={tableData} columns={columns} />
     </div>
   );

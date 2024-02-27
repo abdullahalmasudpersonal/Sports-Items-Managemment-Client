@@ -14,11 +14,12 @@ type TUser = {
 const GetAllBranchManager = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [branchManager, setBranchManager] = useState({});
-  const { username }: TUser = branchManager;
+  const { username, user }: TUser = branchManager;
+  //console.log(user);
   const [params] = useState<TQueryParam[] | undefined>(undefined);
   const { data: branchManagerData } = useGetAllBranchManagerIntoDBQuery(params);
   const { data: salesData } = useGetAllSalesProductQuery(params);
-  const { user } = branchManager;
+  //const { user } = branchManager;
 
   const tableData = branchManagerData?.data?.map(
     ({ _id, user, userId, username, email, contactNo, presentAddress }) => ({
